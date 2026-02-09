@@ -1,6 +1,6 @@
 import axios from 'axios'
 const axiosInstance = axios.create({
-  baseURL: "https://ebsscholarshipboard.org/api/v1",
+  baseURL: "https://api.ebsscholarshipboard.org/api/v1",
   withCredentials: true,
 })
 
