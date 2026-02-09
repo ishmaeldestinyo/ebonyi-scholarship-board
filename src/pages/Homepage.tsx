@@ -10,7 +10,7 @@ function Homepage() {
     const [scrollY, setScrollY] = useState(0)
     const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
     const [isScholarshipOpen, setIsScholarshipOpen] = useState(false)
-    const [currentSession, setCurrentSession] = useState(null)
+    const [currentSession, setCurrentSession] = useState<{ name: string } | null>(null);
     const [loading, setLoading] = useState(true)
 
     // Fetch scholarship status
@@ -40,7 +40,7 @@ function Homepage() {
 
     useEffect(() => {
         const handleScroll = () => setScrollY(window.scrollY)
-        const handleMouseMove = (e) => {
+        const handleMouseMove = (e: any) => {
             setMousePosition({ x: e.clientX, y: e.clientY })
         }
 
@@ -295,7 +295,7 @@ function Homepage() {
                                     : 'text-red-600'
                                 }`}>
                                 <Calendar className={`w-4 h-4 ${isScholarshipOpen ? 'text-emerald-600' : 'text-red-600'}`} />
-                                {loading ? 'Checking Status...' : isScholarshipOpen ? `${currentSession?.title || '2026 Application'} Now Open` : 'Applications Currently Closed'}
+                                {loading ? 'Checking Status...' : isScholarshipOpen ? `${ currentSession?.name || '2026 Application'} Now Open` : 'Applications Currently Closed'}
                             </span>
                         </div>
 
@@ -615,7 +615,7 @@ function Homepage() {
                 </div>
             </footer>
 
-            <style jsx>{`
+            <style>{`
         @keyframes fadeIn {
           from { opacity: 0; }
           to { opacity: 1; }
