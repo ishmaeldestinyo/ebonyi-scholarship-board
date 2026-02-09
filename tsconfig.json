@@ -17,6 +17,9 @@
     "noUnusedParameters": false,
     "skipLibCheck": true,
     "noEmitOnError": false,
-    "composite": true  // optional; required only if referenced projects need it
+    "composite": true,
+    "noImplicitAny": false,
+    "strict": false,
+    "strictNullChecks": false
   }
 }
