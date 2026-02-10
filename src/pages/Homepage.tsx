@@ -189,9 +189,9 @@ function Homepage() {
                             </div>
                             <div className="ml-3">
                                 <div className="text-lg font-bold bg-gradient-to-r from-emerald-600 to-green-600 bg-clip-text text-transparent">
-                                    Ebonyi Scholarship Board
+                                    Ebonyi State Scholarship Board
                                 </div>
-                                <div className="text-xs text-gray-600">Ebonyi State Government</div>
+                                <div className="text-xs text-gray-600">Empowering Ebonyians through education</div>
                             </div>
                         </div>
 
@@ -507,9 +507,9 @@ function Homepage() {
                             {[
                                 "Must be an indigene of Ebonyi State",
                                 "Minimum of 5 O'level credits including English & Mathematics",
-                                "Admitted into an accredited Nigerian institution",
-                                "CGPA of 3.0 and above (for continuing students)",
-                                "Age between 16-30 years",
+                                "Must have graduated from a recognized tertiary institution",
+                                "Must have obtained your NYSC certificate",
+                                "CGPA of 3.5 and above ",
                                 "Not currently benefiting from another scholarship"
                             ].map((requirement, idx) => (
                                 <div key={idx} className="flex items-start gap-3 group">
