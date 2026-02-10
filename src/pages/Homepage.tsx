@@ -564,7 +564,7 @@ function Homepage() {
                                 </li>
                                 <li className="flex items-center gap-2">
                                     <Phone className="w-4 h-4 text-emerald-600 flex-shrink-0" />
-                                    <span>+234 902 758 5555</span>
+                                    <span>08137445300 (calls only) / 08123976969 (whatsapp only)</span>
                                 </li>
                                 <li className="flex items-center gap-2">
                                     <Mail className="w-4 h-4 text-emerald-600 flex-shrink-0" />
