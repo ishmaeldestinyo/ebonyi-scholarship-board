@@ -66,16 +66,31 @@ function Homepage() {
             title: "Empowering Education in Ebonyi State",
             subtitle: "Building a brighter future through quality education and scholarship opportunities",
             gradient: "from-emerald-400 via-green-500 to-teal-600",
+            image: "/images/slider1.jpeg" // Add your image path
         },
         {
             title: "Apply for 2026 Scholarship Programs",
             subtitle: "Financial support for outstanding students pursuing academic excellence",
             gradient: "from-lime-400 via-green-500 to-emerald-600",
+            image: "/images/slider2.jpeg" // Add your image path
         },
         {
             title: "Join Thousands of Scholars",
             subtitle: "Be part of Ebonyi's success story in educational development",
             gradient: "from-teal-400 via-emerald-500 to-green-600",
+            image: "/images/slider3.jpeg" // Add your image path
+        },
+        {
+            title: "Excellence in Academic Achievement",
+            subtitle: "Supporting brilliant minds to reach their full potential",
+            gradient: "from-green-400 via-emerald-500 to-teal-600",
+            image: "/images/slider4.jpeg" // Add your image path
+        },
+        {
+            title: "Transform Your Future Today",
+            subtitle: "Access world-class education with our comprehensive scholarship programs",
+            gradient: "from-emerald-400 via-teal-500 to-green-600",
+            image: "/images/slider5.jpeg" // Add your image path
         }
     ]
 
@@ -261,8 +276,30 @@ function Homepage() {
 
             {/* Hero Slider */}
             <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
-                {/* Decorative polymorphic elements */}
+                {/* Background Image with Overlay */}
                 <div className="absolute inset-0">
+                    {slides.map((slide, idx) => (
+                        <div
+                            key={idx}
+                            className={`absolute inset-0 transition-opacity duration-1000 ${
+                                currentSlide === idx ? 'opacity-100' : 'opacity-0'
+                            }`}
+                        >
+                            <img
+                                src={slide.image}
+                                alt={slide.title}
+                                className="w-full h-full object-cover"
+                            />
+                            {/* Dark overlay for better text readability */}
+                            <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/50 to-black/70"></div>
+                            {/* Colored gradient overlay matching slide theme */}
+                            <div className={`absolute inset-0 bg-gradient-to-br ${slide.gradient} opacity-30 mix-blend-multiply`}></div>
+                        </div>
+                    ))}
+                </div>
+
+                {/* Decorative polymorphic elements */}
+                <div className="absolute inset-0 pointer-events-none">
                     {[...Array(20)].map((_, i) => (
                         <div
                             key={i}
@@ -287,23 +324,27 @@ function Homepage() {
                         className="animate-fadeIn"
                     >
                         <div className={`inline-block mb-6 px-4 py-2 backdrop-blur-sm rounded-full border ${isScholarshipOpen
-                                ? 'bg-emerald-50 border-emerald-200'
-                                : 'bg-red-50 border-red-200'
+                                ? 'bg-emerald-50/90 border-emerald-200'
+                                : 'bg-red-50/90 border-red-200'
                             } animate-slideDown shadow-sm`}>
                             <span className={`text-sm font-semibold flex items-center gap-2 ${isScholarshipOpen
                                     ? 'bg-gradient-to-r from-emerald-600 to-green-600 bg-clip-text text-transparent'
                                     : 'text-red-600'
                                 }`}>
                                 <Calendar className={`w-4 h-4 ${isScholarshipOpen ? 'text-emerald-600' : 'text-red-600'}`} />
-                                {loading ? 'Checking Status...' : isScholarshipOpen ? `${ currentSession?.name || '2026 Application'} Now Open` : 'Applications Currently Closed'}
+                                {loading ? 'Checking Status...' : isScholarshipOpen ? `${currentSession?.name || '2026 Application'} Now Open` : 'Applications Currently Closed'}
                             </span>
                         </div>
 
-                        <h1 className={`text-5xl md:text-7xl font-black mb-6 bg-gradient-to-r ${slides[currentSlide].gradient} bg-clip-text text-transparent animate-slideUp leading-tight`}>
+                        <h1 className={`text-5xl md:text-7xl font-black mb-6 bg-gradient-to-r ${slides[currentSlide].gradient} bg-clip-text text-transparent animate-slideUp leading-tight drop-shadow-2xl`}
+                            style={{
+                                textShadow: '0 0 40px rgba(255,255,255,0.3)'
+                            }}
+                        >
                             {slides[currentSlide].title}
                         </h1>
 
-                        <p className="text-lg md:text-xl text-gray-600 mb-10 max-w-3xl mx-auto animate-slideUp delay-100">
+                        <p className="text-lg md:text-xl text-white mb-10 max-w-3xl mx-auto animate-slideUp delay-100 drop-shadow-lg font-medium">
                             {slides[currentSlide].subtitle}
                         </p>
 
@@ -321,7 +362,7 @@ function Homepage() {
                                 </button>
                             </Link>
                             <a href='#how-to-apply'>
-                                <button className="px-8 py-4 bg-white border-2 border-emerald-500 text-emerald-600 rounded-full font-bold text-lg hover:bg-emerald-50 transform hover:scale-105 transition-all duration-300 shadow-sm">
+                                <button className="px-8 py-4 bg-white/95 backdrop-blur-sm border-2 border-white text-emerald-600 rounded-full font-bold text-lg hover:bg-white transform hover:scale-105 transition-all duration-300 shadow-lg">
                                     View Requirements
                                 </button>
                             </a>
@@ -352,7 +393,7 @@ function Homepage() {
                             onClick={() => setCurrentSlide(index)}
                             className={`h-2.5 rounded-full transition-all duration-300 ${currentSlide === index
                                 ? 'w-12 bg-gradient-to-r from-emerald-500 to-green-500 shadow-lg shadow-emerald-500/40'
-                                : 'w-2.5 bg-emerald-200 hover:bg-emerald-300'
+                                : 'w-2.5 bg-white/60 hover:bg-white/80'
                                 }`}
                         />
                     ))}
